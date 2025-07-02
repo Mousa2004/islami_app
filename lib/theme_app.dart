@@ -5,6 +5,16 @@ class ThemeApp {
   static const Color black = Color(0xff202020);
   static const Color white = Color(0xffFFFFFF);
   static ThemeData darkTheme = ThemeData(
+    appBarTheme: AppBarTheme(
+      backgroundColor: black,
+      titleTextStyle: TextStyle(
+        color: primary,
+        fontSize: 20,
+        fontWeight: FontWeight.w700,
+      ),
+      iconTheme: IconThemeData(color: primary),
+      centerTitle: true,
+    ),
     textTheme: TextTheme(
       bodyLarge: TextStyle(
         color: white,
@@ -20,6 +30,11 @@ class ThemeApp {
         color: white,
         fontSize: 20,
         fontWeight: FontWeight.w700,
+      ),
+      headlineSmall: TextStyle(
+        fontSize: 24,
+        fontWeight: FontWeight.w700,
+        color: primary,
       ),
     ),
   );

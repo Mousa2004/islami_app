@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/home_screan.dart';
+import 'package:islami_app/tabs/quran/quran_detailes.dart';
 import 'package:islami_app/theme_app.dart';
 
 void main() {
@@ -19,7 +20,10 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: HomeScrean.routName,
-      routes: {HomeScrean.routName: (_) => HomeScrean()},
+      routes: {
+        HomeScrean.routName: (_) => HomeScrean(),
+        QuranDetailes.routName: (_) => QuranDetailes(),
+      },
       darkTheme: ThemeApp.darkTheme,
       themeMode: ThemeMode.dark,
     );
