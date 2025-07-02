@@ -18,8 +18,10 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScrean(),
+      initialRoute: HomeScrean.routName,
+      routes: {HomeScrean.routName: (_) => HomeScrean()},
       darkTheme: ThemeApp.darkTheme,
+      themeMode: ThemeMode.dark,
     );
   }
 }
