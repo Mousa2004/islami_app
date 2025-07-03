@@ -11,7 +11,6 @@ import 'package:islami_app/theme_app.dart';
 class HomeScrean extends StatefulWidget {
   static const String routName = "/home";
   const HomeScrean({super.key});
-
   @override
   State<HomeScrean> createState() => _HomeScreanState();
 }

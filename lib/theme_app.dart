@@ -36,6 +36,11 @@ class ThemeApp {
         fontWeight: FontWeight.w700,
         color: primary,
       ),
+      displaySmall: TextStyle(
+        fontSize: 36,
+        fontWeight: FontWeight.w700,
+        color: white,
+      ),
     ),
   );
 }
