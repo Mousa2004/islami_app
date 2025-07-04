@@ -3,7 +3,7 @@ import 'package:islami_app/bottom_navigation_select.dart';
 import 'package:islami_app/bottom_navigation_unselect.dart';
 import 'package:islami_app/tabs/hadeth_tab.dart';
 import 'package:islami_app/tabs/quran/quran_tab.dart';
-import 'package:islami_app/tabs/radio_tab.dart';
+import 'package:islami_app/tabs/radio/radio_tab.dart';
 import 'package:islami_app/tabs/sebha_tab.dart';
 import 'package:islami_app/tabs/time_tab.dart';
 import 'package:islami_app/theme_app.dart';
