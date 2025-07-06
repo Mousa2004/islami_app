@@ -23,7 +23,10 @@ class _QuranTabState extends State<QuranTab> {
           child: TextField(
             style: Theme.of(context).textTheme.bodyLarge,
             cursorColor: ThemeApp.white,
-
+            onChanged: (query) {
+              QuranServices.suraSearchName(query);
+              setState(() {});
+            },
             decoration: InputDecoration(
               hintText: "Sura Name",
               hintStyle: Theme.of(
