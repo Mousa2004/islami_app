@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:islami_app/tabs/quran/sura.dart';
 
 class QuranServices {
@@ -350,12 +351,18 @@ class QuranServices {
     6,
   ];
 
-  static List<Sura> suras = List.generate(114, (index) => getSura(index));
+  static List<Sura> suras = List.generate(
+    114,
+    (index) => getSuraFromIndex(index),
+  );
 
-  static Sura getSura(int index) => Sura(
+  static Sura getSuraFromIndex(int index) => Sura(
     arabicSuraName: arabicQurranSuras[index],
     engSuraName: englishQuranSurahs[index],
     ayaNumber: ayaNumber[index],
     num: index + 1,
   );
+
+  static Future<String> loadSuraFile(int suraName) =>
+      rootBundle.loadString("assets/suras/$suraName.txt");
 }
