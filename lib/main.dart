@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/home_screan.dart';
 import 'package:islami_app/tabs/quran/quran_detailes.dart';
+import 'package:islami_app/tabs/quran/quran_services.dart';
 import 'package:islami_app/theme_app.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await QuranServices.getMostRecentSure();
   runApp(const MyApp());
 }
 

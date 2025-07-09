@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:islami_app/tabs/quran/mostRecently_screan.dart';
 import 'package:islami_app/tabs/quran/quran_detailes.dart';
+import 'package:islami_app/tabs/quran/sura.dart';
 import 'package:islami_app/tabs/quran/sura_iem.dart';
 import 'package:islami_app/tabs/quran/quran_services.dart';
 import 'package:islami_app/theme_app.dart';
@@ -17,9 +19,15 @@ class _QuranTabState extends State<QuranTab> {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
+
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: const EdgeInsets.only(
+            left: 20,
+            right: 20,
+            top: 20,
+            bottom: 10,
+          ),
           child: TextField(
             style: Theme.of(context).textTheme.bodyLarge,
             cursorColor: ThemeApp.white,
@@ -53,6 +61,7 @@ class _QuranTabState extends State<QuranTab> {
             ),
           ),
         ),
+        MostrecentlyScrean(),
         Container(
           margin: EdgeInsets.only(left: 21),
           width: double.infinity,
@@ -64,15 +73,20 @@ class _QuranTabState extends State<QuranTab> {
 
         Expanded(
           child: ListView.separated(
-            itemBuilder: (context, index) => InkWell(
-              onTap: () {
-                Navigator.of(context).pushNamed(
-                  QuranDetailes.routName,
-                  arguments: QuranServices.suras[index],
-                );
-              },
-              child: SuraIem(sura: QuranServices.suras[index]),
-            ),
+            itemBuilder: (context, index) {
+              Sura sura = QuranServices.getSuraFromIndex(index);
+              return InkWell(
+                onTap: () async {
+                  QuranServices.addMostRecentlySura(sura);
+                  await Navigator.of(context).pushNamed(
+                    QuranDetailes.routName,
+                    arguments: QuranServices.suras[index],
+                  );
+                  setState(() {});
+                },
+                child: SuraIem(sura: QuranServices.suras[index]),
+              );
+            },
             separatorBuilder: (context, index) =>
                 Divider(indent: 55, endIndent: 55),
             itemCount: QuranServices.suras.length,
