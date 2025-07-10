@@ -29,6 +29,9 @@ class _HadethItemState extends State<HadethItem> {
       },
       child: Container(
         decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/hadeth_card.png"),
+          ),
           color: ThemeApp.primary,
           borderRadius: BorderRadius.circular(20),
         ),
