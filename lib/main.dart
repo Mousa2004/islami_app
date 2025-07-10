@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/home_screan.dart';
+import 'package:islami_app/tabs/hadeth/hadeth_details.dart';
 import 'package:islami_app/tabs/quran/quran_detailes.dart';
 import 'package:islami_app/tabs/quran/quran_services.dart';
 import 'package:islami_app/theme_app.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await QuranServices.getMostRecentSure();
   runApp(const MyApp());
@@ -26,6 +27,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         HomeScrean.routName: (_) => HomeScrean(),
         QuranDetailes.routName: (_) => QuranDetailes(),
+        HadethDetails.routName: (_) => HadethDetails(),
       },
       darkTheme: ThemeApp.darkTheme,
       themeMode: ThemeMode.dark,
