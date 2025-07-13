@@ -38,33 +38,35 @@ class _SebhaTabState extends State<SebhaTab> {
             style: Theme.of(context).textTheme.displaySmall,
           ),
         ),
-        InkWell(
-          onTap: incrementCounter,
-          child: Container(
-            alignment: Alignment.center,
-            margin: EdgeInsets.only(left: 26, right: 26, top: 8),
-            height: 420,
-            width: 379,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/images/sebha.png"),
-                fit: BoxFit.fill,
+        Expanded(
+          child: InkWell(
+            onTap: incrementCounter,
+            child: Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(left: 26, right: 26, top: 8, bottom: 8),
+              height: MediaQuery.sizeOf(context).height * 0.5,
+              width: 379,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/sebha.png"),
+                  fit: BoxFit.fill,
+                ),
               ),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(height: MediaQuery.sizeOf(context).height * 0.09),
-                Text(
-                  azkar[currentIndex],
-                  style: Theme.of(context).textTheme.displaySmall,
-                ),
-                SizedBox(height: 10),
-                Text(
-                  "$counter",
-                  style: Theme.of(context).textTheme.displaySmall,
-                ),
-              ],
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(height: MediaQuery.sizeOf(context).height * 0.09),
+                  Text(
+                    azkar[currentIndex],
+                    style: Theme.of(context).textTheme.displaySmall,
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "$counter",
+                    style: Theme.of(context).textTheme.displaySmall,
+                  ),
+                ],
+              ),
             ),
           ),
         ),

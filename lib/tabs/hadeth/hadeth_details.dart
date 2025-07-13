@@ -31,9 +31,12 @@ class _HadethDetailsState extends State<HadethDetails> {
                   width: 92,
                   fit: BoxFit.fill,
                 ),
-                Text(
-                  hadeth.title,
-                  style: Theme.of(context).textTheme.headlineSmall,
+                Expanded(
+                  child: Text(
+                    textAlign: TextAlign.center,
+                    hadeth.title,
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
                 ),
                 Image.asset(
                   "assets/images/header_right.png",
