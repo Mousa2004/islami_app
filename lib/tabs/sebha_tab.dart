@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class SebhaTab extends StatefulWidget {
   const SebhaTab({super.key});
@@ -10,6 +11,7 @@ class SebhaTab extends StatefulWidget {
 class _SebhaTabState extends State<SebhaTab> {
   int counter = 0;
   int currentIndex = 0;
+  double angle = 0;
 
   List<String> azkar = ["سبحان الله", "الحمد لله", "الله أكبر"];
   List<int> maxCounts = [33, 33, 34];
@@ -17,6 +19,7 @@ class _SebhaTabState extends State<SebhaTab> {
   void incrementCounter() {
     setState(() {
       counter++;
+      angle += (15 * pi / 100);
       if (counter > maxCounts[currentIndex]) {
         counter = 0;
         currentIndex++;
@@ -32,44 +35,57 @@ class _SebhaTabState extends State<SebhaTab> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.all(20),
           child: Text(
             "سَبِّحِ اسْمَ رَبِّكَ الأعلى",
             style: Theme.of(context).textTheme.displaySmall,
           ),
         ),
         Expanded(
-          child: InkWell(
-            onTap: incrementCounter,
-            child: Container(
-              alignment: Alignment.center,
-              margin: EdgeInsets.only(left: 26, right: 26, top: 8, bottom: 8),
-              height: MediaQuery.sizeOf(context).height * 0.5,
-              width: 379,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/sebha.png"),
-                  fit: BoxFit.fill,
+          child: Stack(
+            alignment: Alignment.topCenter,
+            children: [
+              Image.asset("assets/images/sebha_part1.png"),
+              Padding(
+                padding: EdgeInsets.only(
+                  top: MediaQuery.sizeOf(context).height * 0.025,
+                ),
+                child: InkWell(
+                  onTap: incrementCounter,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Transform.rotate(
+                        angle: angle,
+                        child: Image.asset("assets/images/sebha_part2.png"),
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            textAlign: TextAlign.center,
+                            azkar[currentIndex],
+                            style: Theme.of(context).textTheme.displaySmall,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            textAlign: TextAlign.center,
+                            "$counter",
+                            style: Theme.of(context).textTheme.displaySmall,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(height: MediaQuery.sizeOf(context).height * 0.09),
-                  Text(
-                    azkar[currentIndex],
-                    style: Theme.of(context).textTheme.displaySmall,
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    "$counter",
-                    style: Theme.of(context).textTheme.displaySmall,
-                  ),
-                ],
-              ),
-            ),
+            ],
           ),
         ),
+
+        SizedBox(height: 16),
       ],
     );
   }
