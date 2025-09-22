@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/home_screan.dart';
 import 'package:islami_app/onboarding/onboarding_screan.dart';
+import 'package:islami_app/provider/radio_provider.dart';
+import 'package:islami_app/provider/reciters_provider.dart';
 import 'package:islami_app/tabs/hadeth/hadeth_details.dart';
 import 'package:islami_app/tabs/quran/quran_detailes.dart';
 import 'package:islami_app/tabs/quran/quran_services.dart';
 import 'package:islami_app/theme_app.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
@@ -12,7 +15,16 @@ void main() async {
   await QuranServices.getMostRecentSure();
   final prefs = await SharedPreferences.getInstance();
   bool onboardingDone = prefs.getBool('onboarding_done') ?? false;
-  runApp(MyApp(onboardingDone: onboardingDone));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => RadioProvider()),
+        ChangeNotifierProvider(create: (context) => RecitersProvider()),
+      ],
+
+      child: MyApp(onboardingDone: onboardingDone),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {

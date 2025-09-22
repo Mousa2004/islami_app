@@ -1,19 +1,20 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:islami_app/provider/radio_provider.dart';
+import 'package:islami_app/provider/reciters_provider.dart';
 import 'package:islami_app/theme_app.dart';
 import 'package:provider/provider.dart';
 
-class RadioItem extends StatefulWidget {
+class RecitersItem extends StatefulWidget {
   final String name;
-  final String url;
+  final List<String> url;
 
-  const RadioItem({super.key, required this.name, required this.url});
+  const RecitersItem({super.key, required this.name, required this.url});
 
   @override
-  State<RadioItem> createState() => _RadioItemState();
+  State<RecitersItem> createState() => _RecitersItemState();
 }
 
-class _RadioItemState extends State<RadioItem> {
+class _RecitersItemState extends State<RecitersItem> {
   double volume = 1.0;
 
   @override
@@ -29,7 +30,7 @@ class _RadioItemState extends State<RadioItem> {
           alignment: Alignment.bottomLeft,
         ),
       ),
-      child: Consumer<RadioProvider>(
+      child: Consumer<RecitersProvider>(
         builder: (BuildContext context, state, Widget? child) {
           return Column(
             children: [
@@ -44,6 +45,14 @@ class _RadioItemState extends State<RadioItem> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  //next
+                  IconButton(
+                    onPressed: () async {
+                      await state.next();
+                    },
+                    icon: Icon(Icons.skip_next_sharp, size: 35),
+                  ),
+                  //stop
                   IconButton(
                     onPressed: () async {
                       await state.stop();
@@ -52,19 +61,29 @@ class _RadioItemState extends State<RadioItem> {
                   ),
                   const SizedBox(width: 8),
 
+                  //play
                   IconButton(
                     onPressed: () async {
-                      await state.play(widget.url);
+                      await state.playList(widget.url);
                     },
                     icon: Icon(
-                      (state.isPlaying && state.currentPlayinUrl == widget.url)
+                      (state.isPlaying &&
+                              listEquals(state.playlist, widget.url))
                           ? Icons.pause
                           : Icons.play_circle_filled_sharp,
                       size: 35,
                     ),
                   ),
-                  const SizedBox(width: 8),
 
+                  const SizedBox(width: 8),
+                  IconButton(
+                    onPressed: () async {
+                      await state.previous();
+                    },
+                    icon: Icon(Icons.skip_previous, size: 35),
+                  ),
+                  const SizedBox(width: 8),
+                  //volume
                   IconButton(
                     onPressed: () async {
                       double newVolume = (volume == 0.0) ? 1.0 : 0.0;
