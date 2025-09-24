@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:islami_app/api/api_constant.dart';
-import 'package:islami_app/api/radio_response.dart';
+import 'package:islami_app/models/radio_response.dart';
 
 class RadioApi {
   static Future<RadioResponse> getRadio() async {

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:islami_app/api/api_constant.dart';
-import 'package:islami_app/api/reciters_response.dart';
+import 'package:islami_app/models/reciters_response.dart';
 import 'package:http/http.dart' as http;
 
 class RecitersApi {

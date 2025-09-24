@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/api/azkar_list_image.dart';
 import 'package:islami_app/tabs/timer/azkar_container.dart';
+import 'package:islami_app/tabs/timer/azkar_details.dart';
 import 'package:islami_app/tabs/timer/timer_container.dart';
 
 class TimerTab extends StatelessWidget {
@@ -20,8 +22,22 @@ class TimerTab extends StatelessWidget {
             child: ListView.separated(
               separatorBuilder: (context, index) => SizedBox(width: 10),
               scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) => AzkarContainer(),
-              itemCount: 5,
+              itemBuilder: (context, index) => InkWell(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => AzkarDetails(
+                        azkarName: AzkarListImage.azkarList[index].azkarName,
+                      ),
+                    ),
+                  );
+                },
+                child: AzkarContainer(
+                  azkarImage: AzkarListImage.azkarList[index].imageName,
+                  azkarName: AzkarListImage.azkarList[index].azkarName,
+                ),
+              ),
+              itemCount: AzkarListImage.azkarList.length,
             ),
           ),
         ],

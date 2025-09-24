@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/api/radio_api.dart';
-import 'package:islami_app/api/radio_response.dart';
 import 'package:islami_app/api/reciters_api.dart';
-import 'package:islami_app/api/reciters_response.dart';
+import 'package:islami_app/models/radio_response.dart';
+import 'package:islami_app/models/reciters_response.dart';
 import 'package:islami_app/tabs/radio/radio_item.dart';
 import 'package:islami_app/tabs/radio/reciters_item.dart';
 import 'package:islami_app/theme_app.dart';
