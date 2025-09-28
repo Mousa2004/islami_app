@@ -5,7 +5,7 @@ import 'package:islami_app/tabs/hadeth/hadeth_tab.dart';
 import 'package:islami_app/tabs/quran/quran_tab.dart';
 import 'package:islami_app/tabs/radio/radio_tab.dart';
 import 'package:islami_app/tabs/sebha_tab.dart';
-import 'package:islami_app/tabs/timer/timer_tab.dart';
+import 'package:islami_app/tabs/time/time_tab.dart';
 import 'package:islami_app/theme_app.dart';
 
 class HomeScrean extends StatefulWidget {
@@ -22,7 +22,7 @@ class _HomeScreanState extends State<HomeScrean> {
     HadethTab(),
     SebhaTab(),
     RadioTab(),
-    TimerTab(),
+    TimeTab(),
   ];
   List backgroundImageName = [
     "quran_background",

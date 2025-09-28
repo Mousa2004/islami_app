@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/api/azkar_list_image.dart';
-import 'package:islami_app/tabs/timer/azkar_container.dart';
-import 'package:islami_app/tabs/timer/azkar_details.dart';
-import 'package:islami_app/tabs/timer/timer_container.dart';
+import 'package:islami_app/tabs/time/azkar_container.dart';
+import 'package:islami_app/tabs/time/azkar_details.dart';
+import 'package:islami_app/tabs/time/timer_container.dart';
 
-class TimerTab extends StatelessWidget {
-  const TimerTab({super.key});
+class TimeTab extends StatelessWidget {
+  const TimeTab({super.key});
 
   @override
   Widget build(BuildContext context) {
