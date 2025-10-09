@@ -63,6 +63,7 @@ class TimerSlider extends StatelessWidget {
               ),
             ),
             options: CarouselOptions(
+              autoPlay: true,
               height: 140,
               enlargeCenterPage: true,
               enlargeFactor: 0.25,
