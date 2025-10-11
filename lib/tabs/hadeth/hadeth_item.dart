@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami_app/loading/isLoading.dart';
 import 'package:islami_app/tabs/hadeth/hadeth.dart';
 import 'package:islami_app/tabs/hadeth/hadeth_details.dart';
@@ -33,7 +34,7 @@ class _HadethItemState extends State<HadethItem> {
             image: AssetImage("assets/images/hadeth_card.png"),
           ),
           color: ThemeApp.primary,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(20.r),
         ),
         margin: EdgeInsets.symmetric(horizontal: 4, vertical: 20),
         padding: EdgeInsets.only(top: 12, left: 8, right: 8),
@@ -43,8 +44,8 @@ class _HadethItemState extends State<HadethItem> {
               children: [
                 Image.asset(
                   "assets/images/hadeth_header_left.png",
-                  width: 90,
-                  height: 90,
+                  width: 90.w,
+                  height: 90.h,
                   fit: BoxFit.fill,
                 ),
                 if (hadeth != null)
@@ -54,14 +55,14 @@ class _HadethItemState extends State<HadethItem> {
                       hadeth!.title,
                       style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         color: ThemeApp.black,
-                        fontSize: 23,
+                        fontSize: 23.sp,
                       ),
                     ),
                   ),
                 Image.asset(
                   "assets/images/hadeth_header_right.png",
-                  width: 90,
-                  height: 90,
+                  width: 90.w,
+                  height: 90.h,
                   fit: BoxFit.fill,
                 ),
               ],

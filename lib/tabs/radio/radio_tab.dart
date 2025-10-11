@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami_app/api/radio_api.dart';
 import 'package:islami_app/api/reciters_api.dart';
 import 'package:islami_app/models/radio_response.dart';
@@ -26,13 +27,13 @@ class _RadioTabState extends State<RadioTab> {
             Container(
               decoration: BoxDecoration(
                 color: Color(0xb3202020),
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(12.r),
               ),
               child: TabBar(
                 dividerHeight: 0,
                 indicator: BoxDecoration(
                   color: ThemeApp.primary,
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(12.r),
                 ),
                 indicatorSize: TabBarIndicatorSize.tab,
                 unselectedLabelStyle: Theme.of(context).textTheme.bodyLarge,

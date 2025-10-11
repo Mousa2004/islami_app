@@ -1,6 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami_app/api/pray_time_api.dart';
 import 'package:islami_app/models/pray_time_response/pray_time_response.dart';
 import 'package:islami_app/tabs/time/pray_timer_formate.dart';
@@ -71,10 +72,10 @@ class _TimerContainerState extends State<TimerContainer> {
     final width = MediaQuery.sizeOf(context).width;
 
     return Container(
-      height: height * 0.32,
+      height: height * 0.32.h,
       width: width,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(30.r),
         color: ThemeApp.brown,
         image: const DecorationImage(
           image: AssetImage("assets/images/timer_container.png"),
@@ -107,7 +108,7 @@ class _TimerContainerState extends State<TimerContainer> {
                         context,
                       ).textTheme.titleLarge!.copyWith(color: ThemeApp.brown),
                     ),
-                    const SizedBox(height: 8),
+                    SizedBox(height: 8.h),
                     Text(
                       "${_prayTimeData!.data!.date!.gregorian!.weekday!.en}",
                       style: Theme.of(
@@ -127,16 +128,16 @@ class _TimerContainerState extends State<TimerContainer> {
             ),
 
             Positioned(
-              top: height * 0.1,
+              top: height * 0.09.h,
               right: 0,
               left: 0,
               child: const TimerSlider(),
             ),
 
             Positioned(
-              top: height * 0.26,
-              left: width * 0.10,
-              right: width * 0,
+              top: height * 0.26.h,
+              left: width * 0.10.w,
+              right: width * 0.w,
               child: StreamBuilder<PrayerTimerState>(
                 stream: _timerService?.stream,
                 builder: (context, snapshot) {
@@ -169,14 +170,14 @@ class _TimerContainerState extends State<TimerContainer> {
                           color: Colors.grey[800],
                         ),
                       ),
-                      const SizedBox(width: 8),
+                      SizedBox(width: 8.w),
                       Text(
                         formatted,
                         style: Theme.of(
                           context,
                         ).textTheme.bodyLarge!.copyWith(color: ThemeApp.black),
                       ),
-                      const SizedBox(width: 30),
+                      SizedBox(width: 30.w),
                       IconButton(
                         onPressed: () {
                           isPlaying ? stopAdhan() : playAdhan();

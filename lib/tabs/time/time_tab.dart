@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami_app/api/azkar_list_image.dart';
 import 'package:islami_app/tabs/time/azkar_container.dart';
 import 'package:islami_app/tabs/time/azkar_details.dart';
@@ -15,12 +16,12 @@ class TimeTab extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TimerContainer(),
-          SizedBox(height: 15),
+          SizedBox(height: 15.h),
           Text("Azkar", style: Theme.of(context).textTheme.bodyLarge),
-          SizedBox(height: 15),
+          SizedBox(height: 15.h),
           Expanded(
             child: ListView.separated(
-              separatorBuilder: (context, index) => SizedBox(width: 10),
+              separatorBuilder: (context, index) => SizedBox(width: 10.w),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => InkWell(
                 onTap: () {

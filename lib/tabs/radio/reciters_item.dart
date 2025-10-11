@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami_app/provider/reciters_provider.dart';
 import 'package:islami_app/theme_app.dart';
 import 'package:provider/provider.dart';
@@ -20,10 +21,10 @@ class _RecitersItemState extends State<RecitersItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.sizeOf(context).height * 0.15,
+      height: MediaQuery.sizeOf(context).height * 0.15.h,
       margin: const EdgeInsets.only(top: 10),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.r),
         color: ThemeApp.primary,
         image: const DecorationImage(
           image: AssetImage("assets/images/mask_radio.png"),
@@ -34,7 +35,7 @@ class _RecitersItemState extends State<RecitersItem> {
         builder: (BuildContext context, state, Widget? child) {
           return Column(
             children: [
-              const SizedBox(height: 8),
+              SizedBox(height: 8.h),
               Text(
                 widget.name,
                 style: Theme.of(
@@ -75,14 +76,14 @@ class _RecitersItemState extends State<RecitersItem> {
                     ),
                   ),
 
-                  const SizedBox(width: 8),
+                  SizedBox(width: 8.w),
                   IconButton(
                     onPressed: () async {
                       await state.previous();
                     },
                     icon: Icon(Icons.skip_previous, size: 35),
                   ),
-                  const SizedBox(width: 8),
+                  SizedBox(width: 8.w),
                   //volume
                   IconButton(
                     onPressed: () async {

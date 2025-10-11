@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami_app/tabs/quran/sura.dart';
 
 class SuraIem extends StatelessWidget {
@@ -9,8 +10,8 @@ class SuraIem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: Container(
-        height: 52,
-        width: 52,
+        height: 52.h,
+        width: 52.w,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           image: DecorationImage(

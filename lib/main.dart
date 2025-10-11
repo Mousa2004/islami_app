@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami_app/home_screan.dart';
 import 'package:islami_app/onboarding/onboarding_screan.dart';
 import 'package:islami_app/provider/radio_provider.dart';
@@ -38,19 +39,29 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: widget.onboardingDone
-          ? HomeScrean.routName
-          : OnboardingScrean.routName,
-      routes: {
-        OnboardingScrean.routName: (_) => OnboardingScrean(),
-        HomeScrean.routName: (_) => HomeScrean(),
-        QuranDetailes.routName: (_) => QuranDetailes(),
-        HadethDetails.routName: (_) => HadethDetails(),
-      },
-      darkTheme: ThemeApp.darkTheme,
-      themeMode: ThemeMode.dark,
+    return ScreenUtilInit(
+      designSize: const Size(430, 932),
+      minTextAdapt: true,
+      splitScreenMode: true,
+
+      child: Builder(
+        builder: (context) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            initialRoute: widget.onboardingDone
+                ? HomeScrean.routName
+                : OnboardingScrean.routName,
+            routes: {
+              OnboardingScrean.routName: (_) => OnboardingScrean(),
+              HomeScrean.routName: (_) => HomeScrean(),
+              QuranDetailes.routName: (_) => QuranDetailes(),
+              HadethDetails.routName: (_) => HadethDetails(),
+            },
+            darkTheme: ThemeApp.darkTheme,
+            themeMode: ThemeMode.dark,
+          );
+        },
+      ),
     );
   }
 }

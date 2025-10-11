@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 class SebhaTab extends StatefulWidget {
   const SebhaTab({super.key});
 
@@ -45,10 +47,15 @@ class _SebhaTabState extends State<SebhaTab> {
           child: Stack(
             alignment: Alignment.topCenter,
             children: [
-              Image.asset("assets/images/sebha_part1.png"),
+              Image.asset(
+                "assets/images/sebha_part1.png",
+                width: 145.w,
+                height: 86.h,
+                fit: BoxFit.fill,
+              ),
               Padding(
                 padding: EdgeInsets.only(
-                  top: MediaQuery.sizeOf(context).height * 0.025,
+                  top: MediaQuery.sizeOf(context).height * 0.025.h,
                 ),
                 child: InkWell(
                   onTap: incrementCounter,
@@ -57,7 +64,12 @@ class _SebhaTabState extends State<SebhaTab> {
                     children: [
                       Transform.rotate(
                         angle: angle,
-                        child: Image.asset("assets/images/sebha_part2.png"),
+                        child: Image.asset(
+                          "assets/images/sebha_part2.png",
+                          height: 381.h,
+                          width: 379.w,
+                          fit: BoxFit.fill,
+                        ),
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -69,7 +81,7 @@ class _SebhaTabState extends State<SebhaTab> {
                             style: Theme.of(context).textTheme.displaySmall,
                             overflow: TextOverflow.ellipsis,
                           ),
-                          SizedBox(height: 10),
+                          SizedBox(height: 10.h),
                           Text(
                             textAlign: TextAlign.center,
                             "$counter",
@@ -85,7 +97,7 @@ class _SebhaTabState extends State<SebhaTab> {
           ),
         ),
 
-        SizedBox(height: 16),
+        SizedBox(height: 16.h),
       ],
     );
   }

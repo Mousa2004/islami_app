@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami_app/api/pray_time_api.dart';
 import 'package:islami_app/loading/isLoading.dart';
 import 'package:islami_app/tabs/time/pray_timer_formate.dart';
@@ -31,9 +32,9 @@ class TimerSlider extends StatelessWidget {
           return CarouselSlider.builder(
             itemCount: 6,
             itemBuilder: (context, index, realIndex) => Container(
-              width: 120,
+              width: 120.w,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.r),
                 gradient: LinearGradient(
                   begin: Alignment.bottomRight,
                   end: Alignment.topLeft,
@@ -43,30 +44,30 @@ class TimerSlider extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(height: MediaQuery.sizeOf(context).height * .01),
+                  SizedBox(height: MediaQuery.sizeOf(context).height * .01.h),
                   AutoSizeText(
                     offset[index].key,
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      fontSize: 19,
+                      fontSize: 19.sp,
                       color: ThemeApp.primary,
                     ),
                   ),
-                  SizedBox(height: 5),
+                  SizedBox(height: 5.h),
                   AutoSizeText(
                     textAlign: TextAlign.center,
                     PrayTimerFormate.formatTime(time[index].value),
                     style: Theme.of(
                       context,
-                    ).textTheme.bodyLarge!.copyWith(fontSize: 18),
+                    ).textTheme.bodyLarge!.copyWith(fontSize: 18.sp),
                   ),
                 ],
               ),
             ),
             options: CarouselOptions(
               autoPlay: true,
-              height: 140,
+              height: 140.h,
               enlargeCenterPage: true,
-              enlargeFactor: 0.25,
+              enlargeFactor: 0.25.h,
               viewportFraction: 0.35,
             ),
           );

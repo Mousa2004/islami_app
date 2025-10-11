@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami_app/tabs/quran/quran_detailes.dart';
 import 'package:islami_app/tabs/quran/sura.dart';
 import 'package:islami_app/theme_app.dart';
@@ -18,10 +19,10 @@ class MostecentlyItem extends StatelessWidget {
       },
       child: Container(
         height: double.infinity,
-        width: MediaQuery.sizeOf(context).width * 0.7,
+        width: MediaQuery.sizeOf(context).width * 0.7.w,
         decoration: BoxDecoration(
           color: ThemeApp.primary,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(20.r),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -55,8 +56,8 @@ class MostecentlyItem extends StatelessWidget {
             Expanded(
               child: Image.asset(
                 "assets/images/most_recently.png",
-                width: 151,
-                height: 131,
+                width: 151.w,
+                height: 131.h,
                 fit: BoxFit.fill,
               ),
             ),

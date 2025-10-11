@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami_app/tabs/hadeth/hadeth.dart';
 import 'package:islami_app/theme_app.dart';
 
@@ -27,8 +28,8 @@ class _HadethDetailsState extends State<HadethDetails> {
               children: [
                 Image.asset(
                   "assets/images/header_left.png",
-                  height: 92,
-                  width: 92,
+                  height: 92.h,
+                  width: 92.w,
                   fit: BoxFit.fill,
                 ),
                 Expanded(
@@ -40,8 +41,8 @@ class _HadethDetailsState extends State<HadethDetails> {
                 ),
                 Image.asset(
                   "assets/images/header_right.png",
-                  height: 92,
-                  width: 92,
+                  height: 92.h,
+                  width: 92.w,
                   fit: BoxFit.fill,
                 ),
               ],

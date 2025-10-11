@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami_app/loading/isLoading.dart';
 import 'package:islami_app/tabs/quran/quran_services.dart';
 import 'package:islami_app/tabs/quran/sura.dart';
@@ -33,8 +34,8 @@ class _QuranDetailesState extends State<QuranDetailes> {
               children: [
                 Image.asset(
                   "assets/images/header_left.png",
-                  height: 92,
-                  width: 92,
+                  height: 92.h,
+                  width: 92.w,
                   fit: BoxFit.fill,
                 ),
                 Text(
@@ -43,8 +44,8 @@ class _QuranDetailesState extends State<QuranDetailes> {
                 ),
                 Image.asset(
                   "assets/images/header_right.png",
-                  height: 92,
-                  width: 92,
+                  height: 92.h,
+                  width: 92.w,
                   fit: BoxFit.fill,
                 ),
               ],
@@ -67,7 +68,7 @@ class _QuranDetailesState extends State<QuranDetailes> {
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.titleLarge!.copyWith(
                           color: ThemeApp.primary,
-                          height: 2,
+                          height: 2.h,
                         ),
                       ),
                     ),

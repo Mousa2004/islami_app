@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:islami_app/tabs/quran/mostRecently_screan.dart';
 import 'package:islami_app/tabs/quran/quran_detailes.dart';
@@ -46,16 +47,16 @@ class _QuranTabState extends State<QuranTab> {
                   ThemeApp.primary,
                   BlendMode.srcIn,
                 ),
-                height: 28,
-                width: 28,
+                height: 28.h,
+                width: 28.w,
                 fit: BoxFit.scaleDown,
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.r),
                 borderSide: BorderSide(color: ThemeApp.primary),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.r),
                 borderSide: BorderSide(color: ThemeApp.primary),
               ),
             ),

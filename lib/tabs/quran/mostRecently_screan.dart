@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami_app/tabs/quran/mostecently_item.dart';
 import 'package:islami_app/tabs/quran/quran_services.dart';
 
@@ -15,9 +16,9 @@ class MostrecentlyScrean extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("Most Recently", style: Theme.of(context).textTheme.bodyLarge),
-            SizedBox(height: 10),
+            SizedBox(height: 10.h),
             SizedBox(
-              height: MediaQuery.sizeOf(context).height * 0.14,
+              height: MediaQuery.sizeOf(context).height * 0.14.h,
               width: double.infinity,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
@@ -25,7 +26,7 @@ class MostrecentlyScrean extends StatelessWidget {
                   sura: QuranServices.mostRecentlysura.reversed.toList()[index],
                 ),
 
-                separatorBuilder: (_, _) => SizedBox(width: 10),
+                separatorBuilder: (_, _) => SizedBox(width: 10.w),
                 itemCount: QuranServices.mostRecentlysura.length,
               ),
             ),

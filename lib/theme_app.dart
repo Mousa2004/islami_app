@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ThemeApp {
   static const Color primary = Color(0xffE2BE7F);
@@ -10,7 +11,7 @@ class ThemeApp {
       backgroundColor: black,
       titleTextStyle: TextStyle(
         color: primary,
-        fontSize: 20,
+        fontSize: 20.sp,
         fontWeight: FontWeight.w700,
       ),
       iconTheme: IconThemeData(color: primary),
@@ -19,26 +20,26 @@ class ThemeApp {
     textTheme: TextTheme(
       bodyLarge: TextStyle(
         color: white,
-        fontSize: 16,
+        fontSize: 16.sp,
         fontWeight: FontWeight.w700,
       ),
       bodyMedium: TextStyle(
         color: white,
-        fontSize: 14,
+        fontSize: 14.sp,
         fontWeight: FontWeight.w700,
       ),
       titleLarge: TextStyle(
         color: white,
-        fontSize: 20,
+        fontSize: 20.sp,
         fontWeight: FontWeight.w700,
       ),
       headlineSmall: TextStyle(
-        fontSize: 24,
+        fontSize: 24.sp,
         fontWeight: FontWeight.w700,
         color: primary,
       ),
       displaySmall: TextStyle(
-        fontSize: 36,
+        fontSize: 36.sp,
         fontWeight: FontWeight.w700,
         color: white,
       ),

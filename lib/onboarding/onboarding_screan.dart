@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:islami_app/home_screan.dart';
 import 'package:islami_app/theme_app.dart';
@@ -75,7 +76,7 @@ class OnboardingScrean extends StatelessWidget {
                 showBackButton: true,
                 back: Padding(
                   padding: EdgeInsets.only(
-                    right: MediaQuery.sizeOf(context).width * 0.1,
+                    right: MediaQuery.sizeOf(context).width * 0.1.w,
                   ),
                   child: Text(
                     "Back",
@@ -86,7 +87,7 @@ class OnboardingScrean extends StatelessWidget {
                 ),
                 next: Padding(
                   padding: EdgeInsets.only(
-                    left: MediaQuery.sizeOf(context).width * 0.1,
+                    left: MediaQuery.sizeOf(context).width * 0.1.w,
                   ),
                   child: Text(
                     "Next",
@@ -111,7 +112,7 @@ class OnboardingScrean extends StatelessWidget {
 
                   activeSize: Size(20, 10),
                   activeShape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(15.r),
                   ),
                 ),
 

@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami_app/api/azkar_api.dart';
 import 'package:islami_app/loading/isLoading.dart';
 import 'package:islami_app/models/azkar_response/morning_prayer.dart';
@@ -43,7 +44,7 @@ class AzkarDetails extends StatelessWidget {
                     child: ListView.separated(
                       itemCount: prayers.length,
                       separatorBuilder: (context, index) =>
-                          SizedBox(height: 20),
+                          SizedBox(height: 20.h),
                       itemBuilder: (context, index) {
                         return ChangeNotifierProvider(
                           create: (context) {
@@ -78,7 +79,9 @@ class AzkarDetails extends StatelessWidget {
                                   builder: (context, provider, child) {
                                     return MaterialButton(
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(16),
+                                        borderRadius: BorderRadius.circular(
+                                          16.r,
+                                        ),
                                       ),
                                       color: ThemeApp.black,
                                       textColor: ThemeApp.white,
