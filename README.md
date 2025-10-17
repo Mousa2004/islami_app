@@ -1,6 +1,14 @@
-# islami_app
+# Islami App
 
 A new Flutter project.
+
+---
+
+## 🎥 Project Demo Video
+
+[📺 Watch the video on Google Drive](https://drive.google.com/file/d/1h-MWei1EVPQmSjrEyehVUgLp9c-qZ0Dq/view?usp=sharing)
+
+---
 
 ## Getting Started
 
