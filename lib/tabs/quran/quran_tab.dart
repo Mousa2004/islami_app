@@ -18,82 +18,85 @@ class QuranTab extends StatefulWidget {
 class _QuranTabState extends State<QuranTab> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
 
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(
-            left: 20,
-            right: 20,
-            top: 20,
-            bottom: 10,
-          ),
-          child: TextField(
-            style: Theme.of(context).textTheme.bodyLarge,
-            cursorColor: ThemeApp.white,
-            onChanged: (query) {
-              QuranServices.suraSearchName(query);
-              setState(() {});
-            },
-            decoration: InputDecoration(
-              hintText: "Sura Name",
-              hintStyle: Theme.of(
-                context,
-              ).textTheme.bodyLarge!.copyWith(color: Colors.grey),
-              prefixIcon: SvgPicture.asset(
-                "assets/icons/quran.svg",
-                colorFilter: ColorFilter.mode(
-                  ThemeApp.primary,
-                  BlendMode.srcIn,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 20,
+              right: 20,
+              top: 20,
+              bottom: 10,
+            ),
+            child: TextField(
+              style: Theme.of(context).textTheme.bodyLarge,
+              cursorColor: ThemeApp.white,
+              onChanged: (query) {
+                QuranServices.suraSearchName(query);
+                setState(() {});
+              },
+              decoration: InputDecoration(
+                hintText: "Sura Name",
+                hintStyle: Theme.of(
+                  context,
+                ).textTheme.bodyLarge!.copyWith(color: Colors.grey),
+                prefixIcon: SvgPicture.asset(
+                  "assets/icons/quran.svg",
+                  colorFilter: ColorFilter.mode(
+                    ThemeApp.primary,
+                    BlendMode.srcIn,
+                  ),
+                  height: 28.h,
+                  width: 28.w,
+                  fit: BoxFit.scaleDown,
                 ),
-                height: 28.h,
-                width: 28.w,
-                fit: BoxFit.scaleDown,
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.r),
-                borderSide: BorderSide(color: ThemeApp.primary),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.r),
-                borderSide: BorderSide(color: ThemeApp.primary),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.r),
+                  borderSide: BorderSide(color: ThemeApp.primary),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.r),
+                  borderSide: BorderSide(color: ThemeApp.primary),
+                ),
               ),
             ),
           ),
-        ),
-        MostrecentlyScrean(),
-        Container(
-          margin: EdgeInsets.only(left: 21),
-          width: double.infinity,
-          child: Text(
-            "Suras List",
-            style: Theme.of(context).textTheme.bodyLarge,
+          MostrecentlyScrean(),
+          Container(
+            margin: EdgeInsets.only(left: 21),
+            width: double.infinity,
+            child: Text(
+              "Suras List",
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
           ),
-        ),
 
-        Expanded(
-          child: ListView.separated(
-            itemBuilder: (context, index) {
-              Sura sura = QuranServices.getSuraFromIndex(index);
-              return InkWell(
-                onTap: () async {
-                  QuranServices.addMostRecentlySura(sura);
-                  await Navigator.of(context).pushNamed(
-                    QuranDetailes.routName,
-                    arguments: QuranServices.suras[index],
-                  );
-                  setState(() {});
-                },
-                child: SuraIem(sura: QuranServices.suras[index]),
-              );
-            },
-            separatorBuilder: (context, index) =>
-                Divider(indent: 55, endIndent: 55),
-            itemCount: QuranServices.suras.length,
+          SizedBox(
+            height: MediaQuery.sizeOf(context).height.h,
+            child: ListView.separated(
+              itemBuilder: (context, index) {
+                Sura sura = QuranServices.getSuraFromIndex(index);
+                return InkWell(
+                  onTap: () async {
+                    QuranServices.addMostRecentlySura(sura);
+                    await Navigator.of(context).pushNamed(
+                      QuranDetailes.routName,
+                      arguments: QuranServices.suras[index],
+                    );
+                    setState(() {});
+                  },
+                  child: SuraIem(sura: QuranServices.suras[index]),
+                );
+              },
+              separatorBuilder: (context, index) =>
+                  Divider(indent: 55, endIndent: 55),
+              itemCount: QuranServices.suras.length,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
