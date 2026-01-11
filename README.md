@@ -9,10 +9,14 @@ A new Flutter project.
 Click below to **watch the demo video** of the Islami App:
 
 <p align="center">
-  <a href="https://drive.google.com/file/d/10DQVdENrioRa1LX8rT0ypjsNs3pFB2jp/view?usp=sharing" target="_blank">
-    <img src="https://img.shields.io/badge/Watch%20Demo%20Video-Google%20Drive-green?style=for-the-badge&logo=google-drive" alt="Watch Demo Video"/>
+  <a href="https://drive.google.com/file/d/1yC_0tGDNqKmKZJXEq5oZIVYxcqw4gAM8/view?usp=drive_link" target="_blank">
+    <img 
+      src="https://img.shields.io/badge/Watch%20Demo%20Video-Google%20Drive-green?style=for-the-badge&logo=google-drive" 
+      alt="Watch Demo Video"
+    />
   </a>
 </p>
+
 
 ---
 
