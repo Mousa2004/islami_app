@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami_app/home_screan.dart';
 import 'package:islami_app/onboarding/onboarding_screan.dart';
+import 'package:islami_app/provider/adan_provider.dart';
 import 'package:islami_app/provider/radio_provider.dart';
 import 'package:islami_app/provider/reciters_provider.dart';
 import 'package:islami_app/tabs/hadeth/hadeth_details.dart';
@@ -21,6 +22,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (context) => RadioProvider()),
         ChangeNotifierProvider(create: (context) => RecitersProvider()),
+        ChangeNotifierProvider(create: (context) => AdanProvider()),
       ],
 
       child: MyApp(onboardingDone: onboardingDone),

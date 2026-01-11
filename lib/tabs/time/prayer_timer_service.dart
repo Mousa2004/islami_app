@@ -18,43 +18,57 @@ class PrayerTimerService {
 
   void _calculateNextPrayer() {
     final now = DateTime.now();
-    final prayers = {
-      "Fajr": timings.fajr,
-      "Dhuhr": timings.dhuhr,
-      "Asr": timings.asr,
-      "Maghrib": timings.maghrib,
-      "Isha": timings.isha,
-    };
 
-    for (var entry in prayers.entries) {
-      final timeParts = entry.value!.split(":");
-      final prayerDateTime = DateTime(
+    final prayers = [
+      _Prayer("Fajr", timings.fajr),
+      _Prayer("Dhuhr", timings.dhuhr),
+      _Prayer("Asr", timings.asr),
+      _Prayer("Maghrib", timings.maghrib),
+      _Prayer("Isha", timings.isha),
+    ];
+
+    for (final prayer in prayers) {
+      final parts = prayer.time!.split(":");
+      final prayerTime = DateTime(
         now.year,
         now.month,
         now.day,
-        int.parse(timeParts[0]),
-        int.parse(timeParts[1]),
+        int.parse(parts[0]),
+        int.parse(parts[1]),
       );
 
-      if (prayerDateTime.isAfter(now)) {
-        nextPrayerName = entry.key;
-        remainingTime = prayerDateTime.difference(now);
-        break;
+      if (prayerTime.isAfter(now)) {
+        nextPrayerName = prayer.name;
+        remainingTime = prayerTime.difference(now);
+        _emit();
+        return;
       }
     }
 
+    final fajrParts = timings.fajr!.split(":");
+    final tomorrowFajr = DateTime(
+      now.year,
+      now.month,
+      now.day + 1,
+      int.parse(fajrParts[0]),
+      int.parse(fajrParts[1]),
+    );
+
+    nextPrayerName = "Fajr";
+    remainingTime = tomorrowFajr.difference(now);
     _emit();
   }
 
   void _start() {
     _timer?.cancel();
     _timer = Timer.periodic(const Duration(seconds: 1), (_) {
-      if (remainingTime != null) {
-        remainingTime = remainingTime! - const Duration(seconds: 1);
+      if (remainingTime == null) return;
 
-        if (remainingTime!.inSeconds <= 0) {
-          _calculateNextPrayer();
-        }
+      remainingTime = remainingTime! - const Duration(seconds: 1);
+
+      if (remainingTime!.inSeconds <= 0) {
+        _calculateNextPrayer();
+      } else {
         _emit();
       }
     });
@@ -80,4 +94,10 @@ class PrayerTimerState {
   final Duration? remainingTime;
 
   PrayerTimerState({this.nextPrayerName, this.remainingTime});
+}
+
+class _Prayer {
+  final String name;
+  final String? time;
+  _Prayer(this.name, this.time);
 }

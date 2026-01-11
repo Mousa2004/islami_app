@@ -1,13 +1,12 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:islami_app/api/pray_time_api.dart';
-import 'package:islami_app/models/pray_time_response/pray_time_response.dart';
+import 'package:islami_app/provider/adan_provider.dart';
 import 'package:islami_app/tabs/time/pray_timer_formate.dart';
 import 'package:islami_app/tabs/time/prayer_timer_service.dart';
 import 'package:islami_app/tabs/time/timer_slider.dart';
 import 'package:islami_app/theme_app.dart';
+import 'package:provider/provider.dart';
 
 class TimerContainer extends StatefulWidget {
   const TimerContainer({super.key});
@@ -17,59 +16,19 @@ class TimerContainer extends StatefulWidget {
 }
 
 class _TimerContainerState extends State<TimerContainer> {
-  PrayerTimerService? _timerService;
-  PrayTimeResponse? _prayTimeData;
-  bool _isLoading = true;
-  bool isPlaying = false;
-
   @override
   void initState() {
     super.initState();
-    _loadPrayTimes();
-  }
-
-  AudioPlayer audioPlayer = AudioPlayer();
-
-  void playAdhan() async {
-    await audioPlayer.play(
-      UrlSource("https://media.sd.ma/assabile/adhan_3435370/f5370aa1a7e2.mp3"),
-    );
-    setState(() => isPlaying = true);
-
-    audioPlayer.onPlayerComplete.listen((event) {
-      setState(() => isPlaying = false);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<AdanProvider>().loadPrayTimes();
     });
-  }
-
-  void stopAdhan() async {
-    await audioPlayer.stop();
-    setState(() => isPlaying = false);
-  }
-
-  Future<void> _loadPrayTimes() async {
-    try {
-      final data = await PrayTimeApi.getPrayTime();
-      setState(() {
-        _prayTimeData = data;
-        _isLoading = false;
-        _timerService = PrayerTimerService(data.data!.timings!);
-      });
-    } catch (e) {
-      setState(() => _isLoading = false);
-    }
-  }
-
-  @override
-  void dispose() {
-    _timerService?.dispose();
-    audioPlayer.dispose();
-    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height;
     final width = MediaQuery.sizeOf(context).width;
+    final adan = Provider.of<AdanProvider>(context);
 
     return Container(
       height: height * 0.32.h,
@@ -85,9 +44,9 @@ class _TimerContainerState extends State<TimerContainer> {
       child: Stack(
         alignment: Alignment.topCenter,
         children: [
-          if (_isLoading) ...[
+          if (adan.isLoading) ...[
             const Center(child: CircularProgressIndicator(color: Colors.white)),
-          ] else if (_prayTimeData == null) ...[
+          ] else if (adan.prayTimeData == null) ...[
             const Center(child: Text("Failed to load timer")),
           ] else ...[
             Row(
@@ -96,7 +55,7 @@ class _TimerContainerState extends State<TimerContainer> {
               children: [
                 AutoSizeText(
                   PrayTimerFormate.prayTimeFormate(
-                    "${_prayTimeData!.data!.date!.gregorian!.date}",
+                    "${adan.prayTimeData!.data!.date!.gregorian!.date}",
                   ),
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
@@ -110,7 +69,7 @@ class _TimerContainerState extends State<TimerContainer> {
                     ),
                     SizedBox(height: 8.h),
                     Text(
-                      "${_prayTimeData!.data!.date!.gregorian!.weekday!.en}",
+                      "${adan.prayTimeData!.data!.date!.gregorian!.weekday!.en}",
                       style: Theme.of(
                         context,
                       ).textTheme.titleLarge!.copyWith(color: ThemeApp.black),
@@ -119,7 +78,7 @@ class _TimerContainerState extends State<TimerContainer> {
                 ),
                 AutoSizeText(
                   PrayTimerFormate.prayTimeFormate(
-                    "${_prayTimeData!.data!.date!.hijri!.date}",
+                    "${adan.prayTimeData!.data!.date!.hijri!.date}",
                     isHijri: true,
                   ),
                   style: Theme.of(context).textTheme.bodyLarge,
@@ -139,7 +98,7 @@ class _TimerContainerState extends State<TimerContainer> {
               left: width * 0.10.w,
               right: width * 0.w,
               child: StreamBuilder<PrayerTimerState>(
-                stream: _timerService?.stream,
+                stream: adan.timerService?.stream,
                 builder: (context, snapshot) {
                   final state = snapshot.data;
 
@@ -157,8 +116,8 @@ class _TimerContainerState extends State<TimerContainer> {
                     );
                     formatted = "$h:$m:$s";
 
-                    if (remaining.inSeconds <= 0 && !isPlaying) {
-                      playAdhan();
+                    if (remaining.inSeconds <= 0 && !adan.isPlaying) {
+                      adan.playAdhan();
                     }
                   }
 
@@ -180,10 +139,10 @@ class _TimerContainerState extends State<TimerContainer> {
                       SizedBox(width: 30.w),
                       IconButton(
                         onPressed: () {
-                          isPlaying ? stopAdhan() : playAdhan();
+                          adan.isPlaying ? adan.stopAdhan() : adan.playAdhan();
                         },
                         icon: Icon(
-                          isPlaying ? Icons.volume_up : Icons.volume_off,
+                          adan.isPlaying ? Icons.volume_up : Icons.volume_off,
                           size: 30,
                           color: ThemeApp.black,
                         ),
