@@ -28,16 +28,16 @@ Discover everything you need in **one app**:
 
 ## 🎥 Project Demo Video
 
-Click below to **watch the demo video** of the Islami App:
+Watch the **Islami App demo video** on **Google Drive**:
 
-<p align="center">
+<div align="center">
   <a href="https://drive.google.com/file/d/1yC_0tGDNqKmKZJXEq5oZIVYxcqw4gAM8/view?usp=drive_link" target="_blank">
     <img 
-      src="https://img.shields.io/badge/Watch%20Demo%20Video-Google%20Drive-green?style=for-the-badge&logo=google-drive" 
+      src="https://img.shields.io/badge/Watch%20Demo%20Video-Google%20Drive-blue?style=for-the-badge&logo=google-drive&logoColor=white" 
       alt="Watch Demo Video"
     />
   </a>
-</p>
+</div>
 
 
 ---
