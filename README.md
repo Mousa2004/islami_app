@@ -1,6 +1,28 @@
 # 🕌 Islami App
 
-A new Flutter project.
+[![Flutter](https://img.shields.io/badge/Flutter-3.0-blue?logo=flutter)](https://flutter.dev/)  
+[![Dart](https://img.shields.io/badge/Dart-2.17-blue?logo=dart)](https://dart.dev/)  
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+
+A **comprehensive Islamic app** – your daily guide for your faith!  
+Discover everything you need in **one app**:
+
+## 🌟 Features
+- 🕋 **Quran** with full audio support  
+- 📖 **Hadiths & Daily Azkar**  
+- 🙏 **Digital Tasbeeh** (electronic prayer beads)  
+- 📻 **Islamic Radio** with lectures and lessons  
+- ⏰ **Prayer Times** with automatic Adhan  
+- 📱 **Responsive UI** for all screen sizes  
+- 🏗️ Clean architecture with **Provider** for scalable state management  
+
+---
+
+## 🛠️ Tech Stack
+- **Frontend:** Flutter & Dart  
+- **State Management:** Provider  
+- **API Integration:** HTTP  
+- **Responsive Design:** Works on mobile, tablet, and desktop  
 
 ---
 
