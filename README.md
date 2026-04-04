@@ -1,30 +1,42 @@
 # 🕌 Islami App
 
-A new Flutter project.
+[![Flutter](https://img.shields.io/badge/Flutter-3.0-blue?logo=flutter)](https://flutter.dev/)  
+[![Dart](https://img.shields.io/badge/Dart-2.17-blue?logo=dart)](https://dart.dev/)  
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+
+A **comprehensive Islamic app** – your daily guide for your faith!  
+Discover everything you need in **one app**:
+
+## 🌟 Features
+- 🕋 **Quran** with full audio support  
+- 📖 **Hadiths & Daily Azkar**  
+- 🙏 **Digital Tasbeeh** (electronic prayer beads)  
+- 📻 **Islamic Radio** with lectures and lessons  
+- ⏰ **Prayer Times** with automatic Adhan  
+- 📱 **Responsive UI** for all screen sizes  
+- 🏗️ Clean architecture with **Provider** for scalable state management  
+
+---
+
+## 🛠️ Tech Stack
+- **Frontend:** Flutter & Dart  
+- **State Management:** Provider  
+- **API Integration:** HTTP  
+- **Responsive Design:** Works on mobile, tablet, and desktop  
 
 ---
 
 ## 🎥 Project Demo Video
 
-Click below to **watch the demo video** of the Islami App:
+Watch the **Islami App demo video** on **Google Drive**:
 
-<p align="center">
-  <a href="https://drive.google.com/file/d/10DQVdENrioRa1LX8rT0ypjsNs3pFB2jp/view?usp=sharing" target="_blank">
-    <img src="https://img.shields.io/badge/Watch%20Demo%20Video-Google%20Drive-green?style=for-the-badge&logo=google-drive" alt="Watch Demo Video"/>
+<div align="center">
+  <a href="https://drive.google.com/file/d/1yC_0tGDNqKmKZJXEq5oZIVYxcqw4gAM8/view?usp=drive_link" target="_blank">
+    <img 
+      src="https://img.shields.io/badge/Watch%20Demo%20Video-Google%20Drive-blue?style=for-the-badge&logo=google-drive&logoColor=white" 
+      alt="Watch Demo Video"
+    />
   </a>
-</p>
+</div>
 
----
 
-## 🚀 Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
