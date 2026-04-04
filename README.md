@@ -31,7 +31,7 @@ Discover everything you need in **one app**:
 Watch the **Islami App demo video** on **Google Drive**:
 
 <div align="center">
-  <a href="https://drive.google.com/file/d/1yC_0tGDNqKmKZJXEq5oZIVYxcqw4gAM8/view?usp=drive_link" target="_blank">
+  <a href="https://drive.google.com/file/d/1XWnYgdFb3vxqrmMR5e27K6j9Hpfzb6Vv/view?usp=drive_link" target="_blank">
     <img 
       src="https://img.shields.io/badge/Watch%20Demo%20Video-Google%20Drive-blue?style=for-the-badge&logo=google-drive&logoColor=white" 
       alt="Watch Demo Video"
