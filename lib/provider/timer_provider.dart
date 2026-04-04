@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class TimerProvider extends ChangeNotifier {
   int count = 0;
-  setCount(int apiCount) {
+  void setCount(int apiCount) {
     count = apiCount;
   }
 
